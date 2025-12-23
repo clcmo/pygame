@@ -1,12 +1,13 @@
 import random
 from pygame import Rect
+from utils.constants import ENEMY_SPEED
 
 class Enemy:
     def __init__(self, x, y, territory):
         self.rect = Rect(x, y, 32, 32)
         self.territory = territory
         self.sprite_index = 0
-        self.speed = 2
+        self.speed = ENEMY_SPEED
         self.animation_timer = 0
         self.alive = True
 
