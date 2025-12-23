@@ -1,11 +1,12 @@
 from pygame import Rect
+from utils.constants import HERO_SPEED
 
 class Hero:
     def __init__(self, x, y):
         self.rect = Rect(x, y, 32, 32)
         self.direction = "down"
         self.sprite_index = 0
-        self.speed = 5
+        self.speed = HERO_SPEED
         self.animation_timer = 0
         self.attacking = False
 
