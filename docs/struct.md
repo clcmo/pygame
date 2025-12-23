@@ -1,3 +1,5 @@
+# Estrutura do Projeto Pygame
+
 pygame/
 │── main.py          # Controller
 │── view.py          # View
