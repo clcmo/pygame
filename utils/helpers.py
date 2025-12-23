@@ -1,3 +1,15 @@
+from utils.constants import DEFAULT_LANGUAGE
+from utils.locales import en, pt
+
+LANGUAGE_MAP = {
+    "en": en.MESSAGES,
+    "pt": pt.MESSAGES,
+}
+
+def get_messages(language=DEFAULT_LANGUAGE):
+    return LANGUAGE_MAP.get(language, LANGUAGE_MAP["en"])
+
+
 # Utility functions for a 2D game
 
 def play_music(level):
