@@ -1,5 +1,6 @@
 from model import GameModel
 import view
+from utils.constants import DEFAULT_LANGUAGE from utils.locales import en, pt LANGUAGE_MAP = { "en": en.MESSAGES, "pt": pt.MESSAGES, } # Seleciona idioma messages = LANGUAGE_MAP[DEFAULT_LANGUAGE]
 
 game = GameModel()
 
@@ -9,7 +10,9 @@ def update():
 
 def on_key_down(key):
     if game.state == "menu":
-        if key == keys.S: game.state = "playing"
+        if key == keys.S: 
+            game.state = "playing" 
+            play_music(game.level)
         elif key == keys.M: game.sound_on = not game.sound_on
         elif key == keys.E: exit()
     elif game.state == "playing":
@@ -19,6 +22,8 @@ def on_key_down(key):
         if key == keys.DOWN: game.hero.move(0, game.hero.speed)
         if key == keys.SPACE: game.hero.attack()
         if key == keys.P: game.state = "paused"
+    elif game.state == "level_complete":
+        if key == keys.N: game.next_level()
     elif game.state in ["game_over", "victory"]:
         if key == keys.R: game.__init__()
     elif game.state == "paused":
