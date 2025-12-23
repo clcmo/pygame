@@ -7,7 +7,7 @@ pygame/
 │── models/
 │   ├── hero.py         # Classe Hero
 │   └── enemy.py        # Classe Enemy
-| -- views/
+│── views/
 |    ├── menu.py        # Tela de Menu
 |    └── game_over.py   # Tela de Game Over
 |    ├── hero.py        # View do Heroi
@@ -19,10 +19,13 @@ pygame/
 │── levels/
 │   ├── level1.py       # Definição do Nível 1
 │   └── level2.py       # Definição do Nível 2
-|   └── level3.py       # Definição do Nível Final
+│   └── level3.py       # Definição do Nível Final
 │── utils/
 │   ├── helpers.py      # Funções auxiliares
-│   └── constants.py    # Constantes do jogo
+│   └── constants.py    # Constantes globais (screen, mechanics, etc.)
+│   └── locales/        # Arquivos de localização para múltiplos idiomas
+│       └── en.py    # Localização em inglês
+│       └── pt.py    # Localização em português
 └── README.md           # Documentação do projeto
 
 ## Descrição dos Componentes
