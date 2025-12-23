@@ -8,14 +8,19 @@ class Enemy:
         self.sprite_index = 0
         self.speed = 2
         self.animation_timer = 0
+        self.alive = True
 
     def patrol(self):
-        # Movimento aleatório simples
-        self.rect.x += random.choice([-self.speed, self.speed])
-        self.rect.y += random.choice([-self.speed, self.speed])
+        if self.alive:
+            self.rect.x += random.choice([-self.speed, self.speed])
+            self.rect.y += random.choice([-self.speed, self.speed])
 
     def update_animation(self):
-        self.animation_timer += 1
-        if self.animation_timer >= 15:  # inimigos animam mais devagar
-            self.sprite_index = (self.sprite_index + 1) % 4
-            self.animation_timer = 0
+        if self.alive:
+            self.animation_timer += 1
+            if self.animation_timer >= 15:
+                self.sprite_index = (self.sprite_index + 1) % 4
+                self.animation_timer = 0
+
+    def defeat(self):
+        self.alive = False

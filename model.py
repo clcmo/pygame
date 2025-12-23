@@ -24,13 +24,16 @@ class GameModel:
 
     def check_collisions(self):
         for enemy in self.enemies:
-            if self.hero.rect.colliderect(enemy.rect):
-                self.hero_lives -= 1
-                if self.hero_lives <= 0:
-                    self.state = "game_over"
+            if enemy.alive and self.hero.rect.colliderect(enemy.rect):
+                if self.hero.attacking:
+                    enemy.defeat()
+                else:
+                    self.hero_lives -= 1
+                    if self.hero_lives <= 0:
+                        self.state = "game_over"
 
     def check_victory(self):
-        # Exemplo: vitória se herói alcançar posição X,Y
-        if self.hero.rect.x > 700 and self.hero.rect.y > 500:
+        # Vitória se todos inimigos forem derrotados
+        if all(not enemy.alive for enemy in self.enemies):
             self.victory = True
             self.state = "victory"
