@@ -47,7 +47,7 @@ def draw(hero, enemies, game_state, lives):
         screen.draw.text("Resume Game", center=(400, 300), fontsize=40)
         screen.draw.text("Exit to Main Menu", center=(400, 400), fontsize=40)
     elif game_state == "level_complete":
-        screen.draw.text("Level Complete!", center=(400, 300), fontsize=60, color="blue")
+        screen.draw.text(f"Level {game.level} Complete!", center=(400, 300), fontsize=60, color="blue")
         screen.draw.text("Press N for Next Level", center=(400, 400), fontsize=40)
     elif game_state == "loading":
         screen.draw.text("Loading...", center=(400, 300), fontsize=60)
