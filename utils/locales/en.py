@@ -1,0 +1,16 @@
+MESSAGES = {
+    "welcome": "Welcome to the Game!",
+    "start_game": "Start Game",
+    "game_over": "Game Over!",
+    "level_up": "Level Up!",
+    "victory": "You Win!",
+    "pause": "Game Paused",
+    "resume": "Resuming Game",
+    "power_up": "Power Up Activated!",
+    "lives_left": "Lives Left: {}",
+    "score": "Score: {}",
+    "level": "Level: {}",
+    "exit": "Thanks for playing!",
+    "help": "Use arrow keys to move, space to shoot.",
+    "error": "An error occurred. Please try again.",
+}

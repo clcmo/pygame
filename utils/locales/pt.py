@@ -1,0 +1,16 @@
+MESSAGES = {
+    "welcome": "Bem-vindo ao Jogo!",
+    "start_game": "Iniciar Jogo",
+    "game_over": "Fim de Jogo!",
+    "level_up": "Subiu de Nível!",
+    "victory": "Você Venceu!",
+    "pause": "Jogo Pausado",
+    "resume": "Retomar Jogo",
+    "power_up": "Power Up Ativado!",
+    "lives_left": "Vidas Restantes: {}",
+    "score": "Pontuação: {}",
+    "level": "Nível: {}",
+    "exit": "Obrigado por jogar!",
+    "help": "Use as setas para mover, espaço para atirar.",
+    "error": "Ocorreu um erro. Por favor, tente novamente.",
+}
