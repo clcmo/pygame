@@ -53,4 +53,9 @@ def draw(hero, enemies, game_state, lives):
         screen.draw.text("Loading...", center=(400, 300), fontsize=60)
     elif game_state == "saving":
         screen.draw.text("Saving Game...", center=(400, 300), fontsize=60)
-    
+    elif game_state == "cutscene":
+        screen.draw.text("Cutscene Playing...", center=(400, 300), fontsize=60)
+    elif game_state == "tutorial":
+        screen.draw.text("Tutorial", center=(400, 100), fontsize=50)
+        screen.draw.text("Learn the basics of the game", center=(400, 200), fontsize=30)
+        screen.draw.text("Press T to go back", center=(400, 400), fontsize=40)
