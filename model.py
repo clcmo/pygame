@@ -1,15 +1,18 @@
+import sounds  # Assumir módulo externo para efeitos sonoros
+import music   # Assumir módulo externo para música
 from models.hero import Hero
 from models.enemy import Enemy
+from utils.constants import MECHANIC
 
 class GameModel:
     def __init__(self):
         self.level = 1
-        self.max_levels = 3
+        self.max_levels = MECHANIC["max_levels"]
         self.hero = Hero(100, 100)
         self.enemies = self.create_enemies(self.level)
         self.state = "menu"
         self.sound_on = True
-        self.hero_lives = 3
+        self.hero_lives = MECHANIC["initial_lives"]
         self.victory = False
 
     def create_enemies(self, level):
@@ -34,22 +37,26 @@ class GameModel:
             if enemy.alive and self.hero.rect.colliderect(enemy.rect):
                 if self.hero.attacking:
                     enemy.defeat()
-                    sounds.attack.play()
+                    if self.sound_on:
+                        sounds.attack.play()
                 else:
                     self.hero_lives -= 1
                     if self.hero_lives <= 0:
                         self.state = "game_over"
-                        sounds.hit.play()
+                        if self.sound_on:
+                            sounds.hit.play()
 
     def check_victory(self):
         if all(not enemy.alive for enemy in self.enemies):
             if self.level < self.max_levels:
                 self.state = "level_complete"
-                sounds.victory.play()
+                if self.sound_on:
+                    sounds.victory.play()
             else:
                 self.victory = True
                 self.state = "victory"
-                sounds.victory.play()
+                if self.sound_on:
+                    sounds.victory.play()
 
     def next_level(self):
         if self.level < self.max_levels:
@@ -58,10 +65,9 @@ class GameModel:
             self.enemies = self.create_enemies(self.level)
             self.state = "playing"
 
-    def play_music(level): music.stop() music.play(f"level{level}")
-
     def game_over(self):
         self.state = "game_over"
-        sounds.game_over.play()
+        if self.sound_on:
+            sounds.game_over.play()
         music.stop()
         music.play("game_over")

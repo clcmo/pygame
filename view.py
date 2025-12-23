@@ -1,61 +1,55 @@
 import pgzrun
+from utils.constants import SCREEN
+from utils.helpers import get_messages
+from views.menu import draw_menu
+from views.game_over import draw_game_over
+from views.hero import draw_hero
+from views.enemy import draw_enemies
+from views.power_up import draw_power_ups  # Assumindo que existe uma função para power_ups
 
-WIDTH = 800
-HEIGHT = 600
-
-def draw(hero, enemies, game_state, lives):
+def draw(hero, enemies, power_ups, score, lives, game_state, language="en"):
     screen.clear()
+    screen.fill(SCREEN.get("background_color", (0, 0, 0)))
+    messages = get_messages(language)
     if game_state == "menu":
-        screen.draw.text("Start Game", center=(400, 200), fontsize=40)
-        screen.draw.text("Toggle Sound", center=(400, 300), fontsize=40)
-        screen.draw.text("Exit", center=(400, 400), fontsize=40)
+        draw_menu(screen, language)
     elif game_state == "playing":
-        # Hero
-        screen.blit(f"hero_{hero.direction}{hero.sprite_index}", (hero.rect.x, hero.rect.y))
-        # Enemies
-        for enemy in enemies:
-            screen.blit(f"enemy{enemy.sprite_index}", (enemy.rect.x, enemy.rect.y))
-        # HUD com vidas
-        screen.draw.text(f"Lives: {lives}", topleft=(10, 10), fontsize=30, color="white")
+        draw_hero(screen, hero)
+        draw_enemies(screen, enemies)
+        draw_power_ups(screen, power_ups)
+        screen.draw.text(f"{messages['lives_left'].format(lives)}", topleft=(10, 10), fontsize=30, color="white")
+        screen.draw.text(f"{messages['score'].format(score)}", topright=(SCREEN["width"] - 10, 10), fontsize=30, color="white")
     elif game_state == "game_over":
-        screen.draw.text("GAME OVER", center=(400, 300), fontsize=60, color="red")
-        screen.draw.text("Press R to Restart", center=(400, 400), fontsize=40)
+        draw_game_over(screen, language)
     elif game_state == "victory":
-        screen.draw.text("YOU WIN!", center=(400, 300), fontsize=60, color="green")
-        screen.draw.text("Press R to Restart", center=(400, 400), fontsize=40)
+        screen.draw.text(messages["victory"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=60, color="green")
+        screen.draw.text(messages["resume"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 + 100), fontsize=40)
     elif game_state == "paused":
-        screen.draw.text("PAUSED", center=(400, 300), fontsize=60, color="yellow")
-        screen.draw.text("Press P to Resume", center=(400, 400), fontsize=40)
+        screen.draw.text(messages["pause"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=60, color="yellow")
+        screen.draw.text(messages["resume"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 + 100), fontsize=40)
     elif game_state == "instructions":
-        screen.draw.text("Instructions", center=(400, 100), fontsize=50)
-        screen.draw.text("Use arrow keys to move", center=(400, 200), fontsize=30)
-        screen.draw.text("Avoid enemies and survive", center=(400, 250), fontsize=30)
-        screen.draw.text("Press I to go back", center=(400, 400), fontsize=40)
+        screen.draw.text(messages["help"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 100), fontsize=30)
     elif game_state == "settings":
-        screen.draw.text("Settings", center=(400, 100), fontsize=50)
-        screen.draw.text("Sound: On/Off", center=(400, 200), fontsize=30)
-        screen.draw.text("Difficulty: Easy/Medium/Hard", center=(400, 250), fontsize=30)
-        screen.draw.text("Press S to go back", center=(400, 400), fontsize=40)
+        screen.draw.text(messages["settings"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 200), fontsize=50)
+        screen.draw.text(messages["sound_on"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 100), fontsize=30)
+        screen.draw.text(messages["difficulty"].format("Medium"), center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 50), fontsize=30)
     elif game_state == "high_scores":
-        screen.draw.text("High Scores", center=(400, 100), fontsize=50)
-        # Placeholder for high scores
+        screen.draw.text(messages["high_scores"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 200), fontsize=50)
         for i in range(5):
-            screen.draw.text(f"{i+1}. Player{i+1} - {1000 - i*100}", center=(400, 200 + i*40), fontsize=30)
-        screen.draw.text("Press H to go back", center=(400, 400), fontsize=40)
+            screen.draw.text(f"{i+1}. Player{i+1} - {1000 - i*100}", center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 100 + i*40), fontsize=30)
     elif game_state == "pause_menu":
-        screen.draw.text("Pause Menu", center=(400, 200), fontsize=50)
-        screen.draw.text("Resume Game", center=(400, 300), fontsize=40)
-        screen.draw.text("Exit to Main Menu", center=(400, 400), fontsize=40)
+        screen.draw.text(messages["pause_menu"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 100), fontsize=50)
+        screen.draw.text(messages["resume"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=40)
+        screen.draw.text(messages["exit_to_main_menu"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 + 100), fontsize=40)
     elif game_state == "level_complete":
-        screen.draw.text(f"Level {game.level} Complete!", center=(400, 300), fontsize=60, color="blue")
-        screen.draw.text("Press N for Next Level", center=(400, 400), fontsize=40)
+        screen.draw.text(f"{messages['level'].format(game.level)} Complete!", center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=60, color="blue")
+        screen.draw.text(messages["next_level"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 + 100), fontsize=40)
     elif game_state == "loading":
-        screen.draw.text("Loading...", center=(400, 300), fontsize=60)
+        screen.draw.text(messages["loading"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=60)
     elif game_state == "saving":
-        screen.draw.text("Saving Game...", center=(400, 300), fontsize=60)
+        screen.draw.text(messages["saving"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=60)
     elif game_state == "cutscene":
-        screen.draw.text("Cutscene Playing...", center=(400, 300), fontsize=60)
+        screen.draw.text(messages["cutscene"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2), fontsize=60)
     elif game_state == "tutorial":
-        screen.draw.text("Tutorial", center=(400, 100), fontsize=50)
-        screen.draw.text("Learn the basics of the game", center=(400, 200), fontsize=30)
-        screen.draw.text("Press T to go back", center=(400, 400), fontsize=40)
+        screen.draw.text(messages["tutorial"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 200), fontsize=50)
+        screen.draw.text(messages["help"], center=(SCREEN["width"] // 2, SCREEN["height"] // 2 - 100), fontsize=30)

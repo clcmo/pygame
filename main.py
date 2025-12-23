@@ -1,8 +1,10 @@
 from model import GameModel
 import view
-from utils.constants import DEFAULT_LANGUAGE from utils.locales import en, pt LANGUAGE_MAP = { "en": en.MESSAGES, "pt": pt.MESSAGES, } # Seleciona idioma messages = LANGUAGE_MAP[DEFAULT_LANGUAGE]
+from utils.constants import DEFAULT_LANGUAGE
+from utils.helpers import play_music
 
 game = GameModel()
+language = DEFAULT_LANGUAGE
 
 def update():
     game.update()
@@ -30,7 +32,7 @@ def on_key_down(key):
         if key == keys.P: game.state = "playing"
 
 def draw():
-    view.draw(game.hero, game.enemies, game.state, game.hero_lives)
+    view.draw(game.hero, game.enemies, game.power_ups, game.score, game.hero_lives, game.state, language)
 
 import pgzrun
 pgzrun.go()
