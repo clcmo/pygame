@@ -1,32 +1,51 @@
-import pgzrun
+"""Input handling for menu and game."""
+
+import pygame
+
 
 class InputHandler:
+    """Handles keyboard and mouse input."""
+    
     def __init__(self, controller):
         self.controller = controller
-
+    
     def handle_mouse(self, pos):
-        # Lógica para cliques (ex.: botões no menu)
-        pass
-
+        """Handle mouse click."""
+        game_state = self.controller.game_state
+        
+        if game_state.state == "menu":
+            self.controller.views["menu"].handle_click(pos)
+            
+            # Check menu state changes
+            menu_view = self.controller.views["menu"]
+            if menu_view.start_game:
+                game_state.state = "playing"
+                menu_view.start_game = False
+            elif menu_view.exit_requested:
+                import sys
+                sys.exit(0)
+            
+            game_state.sound_on = menu_view.sound_enabled
+    
     def handle_key(self, key):
-        if self.controller.game_state.state == "menu":
-            if key == keys.S:
-                self.controller.game_state.state = "playing"
-            elif key == keys.E:
-                exit()
-        elif self.controller.game_state.state == "playing":
-            if key == keys.RIGHT:
-                self.controller.hero.move(self.controller.hero.speed, 0)
-            elif key == keys.LEFT:
-                self.controller.hero.move(-self.controller.hero.speed, 0)
-            elif key == keys.UP:
-                self.controller.hero.move(0, -self.controller.hero.speed)
-            elif key == keys.DOWN:
-                self.controller.hero.move(0, self.controller.hero.speed)
-            elif key == keys.SPACE:
+        """Handle keyboard input."""
+        game_state = self.controller.game_state
+        
+        if game_state.state == "playing":
+            # Movement keys using pygame constants
+            if key in (pygame.K_UP, pygame.K_w):
+                self.controller.hero.move(0, -1)
+            elif key in (pygame.K_DOWN, pygame.K_s):
+                self.controller.hero.move(0, 1)
+            elif key in (pygame.K_LEFT, pygame.K_a):
+                self.controller.hero.move(-1, 0)
+            elif key in (pygame.K_RIGHT, pygame.K_d):
+                self.controller.hero.move(1, 0)
+            elif key == pygame.K_SPACE:
                 self.controller.hero.attack()
-            elif key == keys.P:
-                self.controller.game_state.state = "paused"
-        elif self.controller.game_state.state == "paused":
-            if key == keys.P:
-                self.controller.game_state.state = "playing"
+            elif key == pygame.K_p:
+                game_state.state = "paused"
+        
+        elif game_state.state == "paused":
+            if key == pygame.K_p:
+                game_state.state = "playing"

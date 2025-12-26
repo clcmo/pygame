@@ -30,8 +30,7 @@ class GameController:
             self.check_collisions()
             self.check_victory()
 
-    def draw(self):
-        global screen  # Declara screen como global para acesso
+    def draw(self, screen):
         if self.game_state.state == "menu":
             self.views["menu"].draw(screen)
         elif self.game_state.state == "playing":
