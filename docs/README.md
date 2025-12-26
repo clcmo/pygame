@@ -78,13 +78,13 @@ pgzrun main.py
 
 ## Conformidade
 
-✅ Utiliza apenas bibliotecas aprovadas (PgZero, pygame Rect)
-✅ Nomes claros em inglês e conformidade com PEP8
-✅ Classes de animação de sprites adequadas
-✅ Menu com botões clicáveis
-✅ Estrutura do sistema de som
-✅ Mecânica de patrulha inimiga e movimento do herói
-✅ Loop de jogo completo com gerenciamento de estado
+- ✅ Utiliza apenas bibliotecas aprovadas (PgZero, pygame Rect)
+- ✅ Nomes claros em inglês e conformidade com PEP8
+- ✅ Classes de animação de sprites adequadas
+- ✅ Menu com botões clicáveis
+- ✅ Estrutura do sistema de som
+- ✅ Mecânica de patrulha inimiga e movimento do herói
+- ✅ Loop de jogo completo com gerenciamento de estado
 
 ## Implementação recente (dezembro de 2025)
 
