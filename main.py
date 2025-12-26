@@ -1,38 +1,22 @@
-from model import GameModel
-import view
-from utils.constants import DEFAULT_LANGUAGE
-from utils.helpers import play_music
+import pgzrun
+from controllers.game_controller import GameController
+from utils.constants import SCREEN
 
-game = GameModel()
-language = DEFAULT_LANGUAGE
+WIDTH = SCREEN["WIDTH"]
+HEIGHT = SCREEN["HEIGHT"]
 
-def update():
-    game.update()
-    game.hero.attacking = False  # ataque dura apenas 1 frame
-
-def on_key_down(key):
-    if game.state == "menu":
-        if key == keys.S: 
-            game.state = "playing" 
-            play_music(game.level)
-        elif key == keys.M: game.sound_on = not game.sound_on
-        elif key == keys.E: exit()
-    elif game.state == "playing":
-        if key == keys.RIGHT: game.hero.move(game.hero.speed, 0)
-        if key == keys.LEFT: game.hero.move(-game.hero.speed, 0)
-        if key == keys.UP: game.hero.move(0, -game.hero.speed)
-        if key == keys.DOWN: game.hero.move(0, game.hero.speed)
-        if key == keys.SPACE: game.hero.attack()
-        if key == keys.P: game.state = "paused"
-    elif game.state == "level_complete":
-        if key == keys.N: game.next_level()
-    elif game.state in ["game_over", "victory"]:
-        if key == keys.R: game.__init__()
-    elif game.state == "paused":
-        if key == keys.P: game.state = "playing"
+controller = GameController()
 
 def draw():
-    view.draw(game.hero, game.enemies, game.power_ups, game.score, game.hero_lives, game.state, language)
+    controller.draw()
 
-import pgzrun
+def update(dt):
+    controller.update(dt)
+
+def on_mouse_down(pos):
+    controller.on_mouse_down(pos)
+
+def on_key_down(key):
+    controller.on_key_down(key)
+
 pgzrun.go()

@@ -1,0 +1,133 @@
+{
+    "app": {
+        "title": "Monstruous Quest",
+        "subtitle": "Explore. Survive. Conquer."
+    },
+    "menu": {
+        "start": "Start Game",
+        "continue": "Continue",
+        "new_game": "New Game",
+        "load_game": "Load Game",
+        "save_game": "Save Game",
+        "settings": "Settings",
+        "credits": "Credits",
+        "quit": "Quit"
+    },
+    "buttons": {
+        "ok": "OK",
+        "cancel": "Cancel",
+        "yes": "Yes",
+        "no": "No",
+        "apply": "Apply",
+        "back": "Back",
+        "retry": "Retry",
+        "confirm": "Confirm",
+        "buy": "Buy",
+        "sell": "Sell"
+    },
+    "settings": {
+        "audio": "Audio",
+        "music": "Music",
+        "sound": "Sound Effects",
+        "volume": "Volume",
+        "graphics": "Graphics",
+        "resolution": "Resolution",
+        "fullscreen": "Fullscreen",
+        "language": "Language",
+        "controls": "Controls",
+        "invert_y": "Invert Y-Axis"
+    },
+    "game": {
+        "start_prompt": "Press any key to start",
+        "pause": "Pause",
+        "resume": "Resume",
+        "restart": "Restart Level",
+        "quit_confirm": "Are you sure you want to quit?",
+        "saving": "Saving...",
+        "loading": "Loading...",
+        "game_over": "Game Over",
+        "victory": "Victory!",
+        "level_complete": "Level Complete",
+        "new_high_score": "New High Score!",
+        "continue_prompt": "Continue from last save?"
+    },
+    "hud": {
+        "score": "Score",
+        "lives": "Lives",
+        "health": "Health",
+        "armor": "Armor",
+        "level": "Level",
+        "time": "Time",
+        "coins": "Coins",
+        "gems": "Gems",
+        "objective": "Objective",
+        "xp": "Experience"
+    },
+    "messages": {
+        "welcome": "Welcome, {playerName}!",
+        "paused": "Game Paused",
+        "item_collected": "You picked up: {itemName}",
+        "powerup_active": "{powerup} activated",
+        "ability_ready": "{ability} is ready",
+        "checkpoint_reached": "Checkpoint Reached"
+    },
+    "errors": {
+        "generic": "An error occurred",
+        "save_failed": "Failed to save game",
+        "load_failed": "Failed to load game",
+        "network": "Network error",
+        "not_enough_currency": "Not enough funds",
+        "invalid_input": "Invalid input"
+    },
+    "controls": {
+        "move_up": "Move Up",
+        "move_down": "Move Down",
+        "move_left": "Move Left",
+        "move_right": "Move Right",
+        "attack": "Attack",
+        "dash": "Dash",
+        "jump": "Jump",
+        "interact": "Interact",
+        "pause": "Pause Menu"
+    },
+    "items": {
+        "health_potion": "Health Potion",
+        "mana_potion": "Mana Potion",
+        "key": "Key",
+        "coin": "Coin",
+        "gem": "Gem",
+        "weapon": "Weapon",
+        "armor": "Armor",
+        "consumable": "Consumable",
+        "quest_item": "Quest Item"
+    },
+    "shop": {
+        "title": "Shop",
+        "balance": "Balance",
+        "price": "Price",
+        "confirm_purchase": "Confirm Purchase?",
+        "insufficient_funds": "You do not have enough coins"
+    },
+    "network": {
+        "connecting": "Connecting...",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "reconnecting": "Reconnecting..."
+    },
+    "achievements": {
+        "unlocked": "Achievement Unlocked",
+        "locked": "Locked",
+        "progress": "{current}/{total}"
+    },
+    "tutorial": {
+        "move_tip": "Use the arrow keys or WASD to move",
+        "attack_tip": "Press Space to attack",
+        "interact_tip": "Press E to interact",
+        "open_menu_tip": "Press Esc to open the menu"
+    },
+    "confirmations": {
+        "delete_save": "Delete this save file?",
+        "exit_game": "Exit the game now?",
+        "overwrite_save": "Overwrite existing save?"
+    }
+}

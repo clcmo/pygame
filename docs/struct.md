@@ -1,32 +1,42 @@
 # Estrutura do Projeto Pygame
 
 pygame/
-│── main.py             # Controller
-│── view.py             # View
-│── model.py            # Gerencia estado geral do jogo
-│── models/
-│   ├── hero.py         # Classe Hero
-│   └── enemy.py        # Classe Enemy
-│── views/
-|    ├── menu.py        # Tela de Menu
-|    └── game_over.py   # Tela de Game Over
-|    ├── hero.py        # View do Heroi
-|    └── enemy.py       # View do Inimigo
-│── assets/
-│   ├── images/         # Imagens do jogo
-│   ├── sounds/         # Efeitos sonoros
-│   └── music/          # Trilha sonora
-│── levels/
-│   ├── level1.py       # Definição do Nível 1
-│   └── level2.py       # Definição do Nível 2
-│   └── level3.py       # Definição do Nível Final
-│── utils/
-│   ├── helpers.py      # Funções auxiliares
-│   └── constants.py    # Constantes globais (screen, mechanics, etc.)
-│   └── locales/        # Arquivos de localização para múltiplos idiomas
-│       └── en.py    # Localização em inglês
-│       └── pt.py    # Localização em português
-└── README.md           # Documentação do projeto
+├── main.py                  # Ponto de entrada PgZero
+│
+├── models/                  # MODEL - lógica e estado
+│   ├── __init__.py
+│   ├── game_state.py        # Estado global do jogo
+│   ├── hero.py              # Classe do herói
+│   ├── enemy.py             # Classe dos inimigos
+│   └── level.py             # Cenário e lógica de mapa
+│
+├── views/                   # VIEW - renderização e UI
+│   ├── __init__.py
+│   ├── base_view.py         # Classe base para telas
+│   ├── menu_view.py         # Tela de menu principal
+│   ├── game_view.py         # Tela do jogo
+│   ├── pause_view.py        # Tela de pausa
+│   └── hud_view.py          # Interface HUD (vida, score)
+│
+├── controllers/             # CONTROLLER - input e fluxo
+│   ├── __init__.py
+│   ├── game_controller.py   # Controlador principal
+│   └── input_handler.py     # Gerenciamento de cliques/teclas
+│
+├── assets/                  # Sprites e sons (pack Kenney)
+│   ├── sprites/
+│   │   ├── hero/
+│   │   ├── enemies/
+│   │   └── ui/              # Botões sci-fi do Kenney
+│   └── sounds/
+│       ├── effects/
+│       └── music/
+│
+└── utils/                   # Utilitários
+    ├── __init__.py
+    ├── animations.py         # Ciclo de sprites
+    ├── audio_manager.py      # Música e efeitos
+    └── constants.py          # Constantes globais
 
 ## Descrição dos Componentes
 

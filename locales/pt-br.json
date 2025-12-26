@@ -1,0 +1,134 @@
+{
+    "__instructions__": "Tradução em pt-BR",
+    "app": {
+        "title": "Missão Monstruosa",
+        "subtitle": "Explore. Sobreviva. Conquiste."
+    },
+    "menu": {
+        "start": "Iniciar Jogo",
+        "continue": "Continuar",
+        "new_game": "Novo Jogo",
+        "load_game": "Carregar Jogo",
+        "save_game": "Salvar Jogo",
+        "settings": "Configurações",
+        "credits": "Créditos",
+        "quit": "Sair"
+    },
+    "buttons": {
+        "ok": "OK",
+        "cancel": "Cancelar",
+        "yes": "Sim",
+        "no": "Não",
+        "apply": "Aplicar",
+        "back": "Voltar",
+        "retry": "Tentar Novamente",
+        "confirm": "Confirmar",
+        "buy": "Comprar",
+        "sell": "Vender"
+    },
+    "settings": {
+        "audio": "Áudio",
+        "music": "Música",
+        "sound": "Efeitos Sonoros",
+        "volume": "Volume",
+        "graphics": "Gráficos",
+        "resolution": "Resolução",
+        "fullscreen": "Tela Cheia",
+        "language": "Idioma",
+        "controls": "Controles",
+        "invert_y": "Inverter Eixo Y"
+    },
+    "game": {
+        "start_prompt": "Pressione qualquer tecla para começar",
+        "pause": "Pausar",
+        "resume": "Retomar",
+        "restart": "Reiniciar Nível",
+        "quit_confirm": "Tem certeza de que deseja sair?",
+        "saving": "Salvando...",
+        "loading": "Carregando...",
+        "game_over": "Fim de Jogo",
+        "victory": "Vitória!",
+        "level_complete": "Nível Concluído",
+        "new_high_score": "Novo Recorde!",
+        "continue_prompt": "Continuar do último salvamento?"
+    },
+    "hud": {
+        "score": "Pontuação",
+        "lives": "Vidas",
+        "health": "Saúde",
+        "armor": "Armadura",
+        "level": "Nível",
+        "time": "Tempo",
+        "coins": "Moedas",
+        "gems": "Gemas",
+        "objective": "Objetivo",
+        "xp": "Experiência"
+    },
+    "messages": {
+        "welcome": "Bem-vindo, {playerName}!",
+        "paused": "Jogo Pausado",
+        "item_collected": "Você coletou: {itemName}",
+        "powerup_active": "{powerup} ativado",
+        "ability_ready": "{ability} está disponível",
+        "checkpoint_reached": "Checkpoint alcançado"
+    },
+    "errors": {
+        "generic": "Ocorreu um erro",
+        "save_failed": "Falha ao salvar o jogo",
+        "load_failed": "Falha ao carregar o jogo",
+        "network": "Erro de rede",
+        "not_enough_currency": "Fundos insuficientes",
+        "invalid_input": "Entrada inválida"
+    },
+    "controls": {
+        "move_up": "Mover para Cima",
+        "move_down": "Mover para Baixo",
+        "move_left": "Mover para Esquerda",
+        "move_right": "Mover para Direita",
+        "attack": "Atacar",
+        "dash": "Investida",
+        "jump": "Pular",
+        "interact": "Interagir",
+        "pause": "Menu de Pausa"
+    },
+    "items": {
+        "health_potion": "Poção de Vida",
+        "mana_potion": "Poção de Mana",
+        "key": "Chave",
+        "coin": "Moeda",
+        "gem": "Gema",
+        "weapon": "Arma",
+        "armor": "Armadura",
+        "consumable": "Consumível",
+        "quest_item": "Item de Missão"
+    },
+    "shop": {
+        "title": "Loja",
+        "balance": "Saldo",
+        "price": "Preço",
+        "confirm_purchase": "Confirmar compra?",
+        "insufficient_funds": "Você não tem moedas suficientes"
+    },
+    "network": {
+        "connecting": "Conectando...",
+        "connected": "Conectado",
+        "disconnected": "Desconectado",
+        "reconnecting": "Reconectando..."
+    },
+    "achievements": {
+        "unlocked": "Conquista Desbloqueada",
+        "locked": "Bloqueado",
+        "progress": "{current}/{total}"
+    },
+    "tutorial": {
+        "move_tip": "Use as teclas de seta ou WASD para se mover",
+        "attack_tip": "Pressione Espaço para atacar",
+        "interact_tip": "Pressione E para interagir",
+        "open_menu_tip": "Pressione Esc para abrir o menu"
+    },
+    "confirmations": {
+        "delete_save": "Excluir este arquivo de salvamento?",
+        "exit_game": "Sair do jogo agora?",
+        "overwrite_save": "Sobrescrever salvamento existente?"
+    }
+}

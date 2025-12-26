@@ -1,27 +1,26 @@
-import random
 from pygame import Rect
 from utils.constants import ENEMY_SPEED
 
 class Enemy:
-    def __init__(self, x, y, territory):
-        self.rect = Rect(x, y, 32, 32)
-        self.territory = territory
-        self.sprite_index = 0
+    def __init__(self, x, y, zone):
+        self.x = x
+        self.y = y
         self.speed = ENEMY_SPEED
-        self.animation_timer = 0
+        self.zone = zone
         self.alive = True
+        self.rect = Rect(self.x, self.y, 32, 32)  # Placeholder para sprite
 
     def patrol(self):
-        if self.alive:
-            self.rect.x += random.choice([-self.speed, self.speed])
-            self.rect.y += random.choice([-self.speed, self.speed])
-
-    def update_animation(self):
-        if self.alive:
-            self.animation_timer += 1
-            if self.animation_timer >= 15:
-                self.sprite_index = (self.sprite_index + 1) % 4
-                self.animation_timer = 0
+        # Lógica simples de patrulha
+        if self.zone == "zone1":
+            self.x += self.speed
+            if self.x > 400: self.speed = -self.speed
+            if self.x < 200: self.speed = -self.speed
+        self.rect.topleft = (self.x, self.y)
 
     def defeat(self):
         self.alive = False
+
+    def update_animation(self):
+        # Placeholder para animação
+        pass
