@@ -4,8 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "clcmo-game"
-version = "0.1.0"
+version = "0.1.1"
 description = "A description of your game"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "pgzero>=1.2.1",
